@@ -1,8 +1,8 @@
 Relatório de demanda de anúncios em Meta Ads
 ------------------------------------------------
 Empresa:	 Turistamos
-Quantidade de dias que rodarão anúncios:	 30
-Orçamento diário:	 R$ 8,45
-Orçamento total total:	 R$ 253,50
+Quantidade de dias que rodarão anúncios:	 23
+Orçamento diário:	 R$ 6,00
+Orçamento total total:	 R$ 138,00
 Criativos já foram enviados?:	 SIM
 ------------------------------------------------
