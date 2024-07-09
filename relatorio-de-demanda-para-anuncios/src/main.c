@@ -28,8 +28,8 @@ int main() {
     printf("\nQuantos dias de anúncio serão feitos?\n");
     scanf("%d", &dias_de_anuncio);
 
-    printf("\nQual será o orçamento diário?\n");
-    printf("R$ "); scanf(" %f", &orcamento_diario);
+    printf("\nQual será o orçamento diário?\n"); 
+    scanf("%f", &orcamento_diario);
     
     // Limpar o buffer do teclado
     int c;
@@ -53,10 +53,14 @@ int main() {
     orcamento_total = dias_de_anuncio * orcamento_diario;
 
     fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n");
+    fprintf(arq, "------------------------------------------------\n");
+
     fprintf(arq, "Quantidade de dias que rodarão anúncios:\t %d\n", dias_de_anuncio);
     fprintf(arq, "Orçamento diário:\t R$ %.2f\n", orcamento_diario);
     fprintf(arq, "Orçamento total total:\t R$ %.2f\n", orcamento_total);
-    fprintf(arq, "Criativos já foram enviados?:\t %s", status_do_criativo);
+    fprintf(arq, "Criativos já foram enviados?:\t %s\n", status_do_criativo);
+    fprintf(arq, "------------------------------------------------\n");
+
 
     // Fecha o arquivo
     fclose(arq);
