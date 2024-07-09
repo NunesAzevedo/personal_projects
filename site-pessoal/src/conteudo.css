@@ -1,0 +1,24 @@
+.main-conteiner {
+    background-color: white;
+    padding: 2vw;
+    width: 40vw;
+    height: fit-content;
+    border-radius: 10%;
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.titulo {
+    padding: 2vw;
+}
+
+.conteudo h2 {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
