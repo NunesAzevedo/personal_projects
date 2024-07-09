@@ -22,9 +22,13 @@ int main() {
     float orcamento_diario, orcamento_total;
     char status_do_criativo__temp__ = '\0';
     char status_do_criativo[4];
+    char nome_da_empresa[50];
 
 
     // Leitura dos parâmetros
+    printf("\nNome da empresa:\n");
+    gets(nome_da_empresa);
+
     printf("\nQuantos dias de anúncio serão feitos?\n");
     scanf("%d", &dias_de_anuncio);
 
@@ -55,6 +59,7 @@ int main() {
     fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n");
     fprintf(arq, "------------------------------------------------\n");
 
+    fprintf(arq, "Empresa:\t %s\n", nome_da_empresa);
     fprintf(arq, "Quantidade de dias que rodarão anúncios:\t %d\n", dias_de_anuncio);
     fprintf(arq, "Orçamento diário:\t R$ %.2f\n", orcamento_diario);
     fprintf(arq, "Orçamento total total:\t R$ %.2f\n", orcamento_total);
