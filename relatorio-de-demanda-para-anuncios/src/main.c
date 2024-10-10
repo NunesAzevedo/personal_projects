@@ -38,13 +38,15 @@ int main() {
     // Limpar o buffer do teclado
     int c;
     while( (c = getchar()) != '\n' && c != EOF) {}
-        while(status_do_criativo__temp__ != 's' && status_do_criativo__temp__ != 'n'){
-            printf("\nOs criativos já estao no drive? (s/n)\n");
-            scanf(" %c", &status_do_criativo__temp__);
 
-            // Limpa novamente o buffer do teclado
-            while( (c = getchar()) != '\n' && c != EOF) {}
-        }
+    // Lê a entrada do usuário
+    while(status_do_criativo__temp__ != 's' && status_do_criativo__temp__ != 'n'){
+        printf("\nOs criativos já estao no drive? (s/n)\n");
+        scanf(" %c", &status_do_criativo__temp__);
+
+        // Limpa novamente o buffer do teclado
+        while( (c = getchar()) != '\n' && c != EOF) {}
+    }
 
     if(status_do_criativo__temp__ == 's') {
         strcpy(status_do_criativo, "SIM");
@@ -58,12 +60,11 @@ int main() {
 
     fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n");
     fprintf(arq, "------------------------------------------------\n");
-
-    fprintf(arq, "Empresa:\t %s\n", nome_da_empresa);
+    fprintf(arq, "Empresa:\t %s\n",                                 nome_da_empresa);
     fprintf(arq, "Quantidade de dias que rodarão anúncios:\t %d\n", dias_de_anuncio);
-    fprintf(arq, "Orçamento diário:\t R$ %.2f\n", orcamento_diario);
-    fprintf(arq, "Orçamento total total:\t R$ %.2f\n", orcamento_total);
-    fprintf(arq, "Criativos já foram enviados?:\t %s\n", status_do_criativo);
+    fprintf(arq, "Orçamento diário:\t R$ %.2f\n",                   orcamento_diario);
+    fprintf(arq, "Orçamento total total:\t R$ %.2f\n",              orcamento_total);
+    fprintf(arq, "Criativos já foram enviados?:\t %s\n",            status_do_criativo);
     fprintf(arq, "------------------------------------------------\n");
 
 
