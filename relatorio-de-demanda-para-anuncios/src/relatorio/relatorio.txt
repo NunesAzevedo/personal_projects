@@ -1,8 +1,8 @@
 Relatório de demanda de anúncios em Meta Ads
-------------------------------------------------
-Empresa:	 Turistamos - Campos do Jordão
-Quantidade de dias que rodarão anúncios:	 7
-Orçamento diário:	 R$ 6,00
-Orçamento total total:	 R$ 42,00
-Criativos já foram enviados?:	 SIM
-------------------------------------------------
+Empresa: exemplo
+---------------------------------------------------------
+Quantidade de dias que rodarão anúncios:.. 20
+Orçamento diário:......................... R$ 10,00
+Orçamento total total:.................... R$ 200,00
+Criativos já foram enviados?:............. SIM
+---------------------------------------------------------

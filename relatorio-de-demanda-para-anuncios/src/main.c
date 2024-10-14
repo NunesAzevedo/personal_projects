@@ -58,14 +58,14 @@ int main() {
     // Cálculo do orçamento total
     orcamento_total = dias_de_anuncio * orcamento_diario;
 
-    fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n");
-    fprintf(arq, "------------------------------------------------\n");
-    fprintf(arq, "Empresa:\t %s\n",                                 nome_da_empresa);
-    fprintf(arq, "Quantidade de dias que rodarão anúncios:\t %d\n", dias_de_anuncio);
-    fprintf(arq, "Orçamento diário:\t R$ %.2f\n",                   orcamento_diario);
-    fprintf(arq, "Orçamento total total:\t R$ %.2f\n",              orcamento_total);
-    fprintf(arq, "Criativos já foram enviados?:\t %s\n",            status_do_criativo);
-    fprintf(arq, "------------------------------------------------\n");
+    fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n"                          );
+    fprintf(arq, "Empresa: %s\n"                                       , nome_da_empresa   );
+    fprintf(arq, "---------------------------------------------------------\n"             );
+    fprintf(arq, "Quantidade de dias que rodarão anúncios:.. %d\n"     , dias_de_anuncio   );
+    fprintf(arq, "Orçamento diário:......................... R$ %.2f\n", orcamento_diario  );
+    fprintf(arq, "Orçamento total total:.................... R$ %.2f\n", orcamento_total   );
+    fprintf(arq, "Criativos já foram enviados?:............. %s\n"     , status_do_criativo);
+    fprintf(arq, "---------------------------------------------------------\n"             );
 
 
     // Fecha o arquivo
