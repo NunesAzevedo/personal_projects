@@ -4,72 +4,113 @@
 #include <string.h>
 #include <locale.h>
 
+#define TAM_NOME_EMPRESA 20
+#define TAM_NOME_PROJETO 50
 
-int main() {
 
+#define DEBUGGING 0
+// #define DEBUGGING 1
+
+void limpaBufferTeclado()
+{
+    int c;
+    while( (c = getchar()) != '\n' && c != EOF) {}
+
+}
+
+int main()
+{
     // Configurando caracteres especiais do português
     setlocale(LC_ALL, "Portuguese");
 
     // Abertura do arquivo
-    FILE *arq = fopen("relatorio/relatorio.txt", "w");
-    if (arq == NULL) { // Verifica se o arquivo foi aberto corretamente
-        perror("\nErro ao abrir o arquivo\n");
+    FILE *relatorio = fopen("./relatorio/relatorio.txt", "wt+");
+    if (relatorio == NULL) { // Verifica se o arquivo foi aberto corretamente
+        perror("\n*********\nErro ao abrir o arquivo\n*********\n");
         return 1;
     }
 
     // Declaração de variáveis
     int dias_de_anuncio;
+    int quantidadeDeProjetos;
     float orcamento_diario, orcamento_total;
-    char status_do_criativo__temp__ = '\0';
-    char status_do_criativo[4];
-    char nome_da_empresa[50];
-
+    // char status_do_criativo__temp__ = '\0';
+    // char status_do_criativo[4];
+    char* nomeDaEmpresa = (char*) malloc(TAM_NOME_EMPRESA * sizeof(char));
+    if(nomeDaEmpresa == NULL)
+    {
+        perror("Erro ao alocar o ponteiro: nomeDaEmpresa");
+        return 1;
+    }
 
     // Leitura dos parâmetros
     printf("\nNome da empresa:\n");
-    gets(nome_da_empresa);
+    scanf("%s", nomeDaEmpresa);
+    fprintf(relatorio, "**********************************************************\n");
+    fprintf(relatorio, "Relatório de demanda de anúncios em Meta Ads\n");
+    fprintf(relatorio, "**********************************************************\n");
+    fprintf(relatorio, "Empresa: %s\n", nomeDaEmpresa);
+    fprintf(relatorio, "---------------------------------------------------------\n");
+    free(nomeDaEmpresa);
 
-    printf("\nQuantos dias de anúncio serão feitos?\n");
-    scanf("%d", &dias_de_anuncio);
+    printf("\nQuantos projetos?\n");
+    scanf("%d", &quantidadeDeProjetos);
 
-    printf("\nQual será o orçamento diário?\n"); 
-    scanf("%f", &orcamento_diario);
-    
-    // Limpar o buffer do teclado
-    int c;
-    while( (c = getchar()) != '\n' && c != EOF) {}
 
-    // Lê a entrada do usuário
-    while(status_do_criativo__temp__ != 's' && status_do_criativo__temp__ != 'n'){
-        printf("\nOs criativos já estao no drive? (s/n)\n");
-        scanf(" %c", &status_do_criativo__temp__);
 
-        // Limpa novamente o buffer do teclado
-        while( (c = getchar()) != '\n' && c != EOF) {}
+
+
+    for (int i = 1; i <= quantidadeDeProjetos; i++)
+    {
+        char* nomeDoProjeto = (char*) malloc(quantidadeDeProjetos * sizeof(char));
+        if(nomeDoProjeto == NULL)
+        {
+            perror("Erro ao alocar o ponteiro: nomeDoProjeto");
+            return 1;
+        }
+
+        printf("\nNome do %dº projeto:\n", i);
+        scanf("%s", nomeDoProjeto);
+        limpaBufferTeclado();
+
+        if (DEBUGGING) printf("[DEBUG]: nomeDoProjeto[%d]: %s\n", i, nomeDoProjeto);
+
+        printf("\nQuantos dias de anúncio serão feitos?\n");
+        scanf("%d", &dias_de_anuncio);
+        limpaBufferTeclado();
+
+        printf("\nQual será o orçamento diário?\n"); 
+        scanf("%f", &orcamento_diario);
+        limpaBufferTeclado();
+
+        // status_do_criativo__temp__ = '.'; // Coloca valor padrão
+        // while(status_do_criativo__temp__ != 's' && status_do_criativo__temp__ != 'n'){
+        //     printf("\nOs criativos já estao no drive? (s/n)\n");
+        //     scanf(" %c", &status_do_criativo__temp__);
+        //     limpaBufferTeclado();
+        // }
+
+        // if(status_do_criativo__temp__ == 's') {
+        //     strcpy(status_do_criativo, "SIM");
+        // }
+        // if(status_do_criativo__temp__ == 'n') {
+        //     strcpy(status_do_criativo, "NÃO");
+        // }
+
+        // Cálculo do orçamento total
+        orcamento_total = dias_de_anuncio * orcamento_diario;
+        fprintf(relatorio, "Projeto: %s\n", nomeDoProjeto);
+        fprintf(relatorio, "Quantidade de dias que rodarão anúncios:.. %d\n"     , dias_de_anuncio);
+        fprintf(relatorio, "Orçamento diário:......................... R$ %.2f\n", orcamento_diario);
+        fprintf(relatorio, "Orçamento total total:.................... R$ %.2f\n", orcamento_total);
+        // fprintf(relatorio, "Criativos já foram enviados?:............. %s\n"     , status_do_criativo);
+        fprintf(relatorio, "---------------------------------------------------------\n");
+
+        nomeDoProjeto = NULL;
+        free(nomeDoProjeto);
     }
-
-    if(status_do_criativo__temp__ == 's') {
-        strcpy(status_do_criativo, "SIM");
-    }
-    if(status_do_criativo__temp__ == 'n') {
-        strcpy(status_do_criativo, "NÃO");
-    }
-
-    // Cálculo do orçamento total
-    orcamento_total = dias_de_anuncio * orcamento_diario;
-
-    fprintf(arq, "Relatório de demanda de anúncios em Meta Ads\n"                          );
-    fprintf(arq, "Empresa: %s\n"                                       , nome_da_empresa   );
-    fprintf(arq, "---------------------------------------------------------\n"             );
-    fprintf(arq, "Quantidade de dias que rodarão anúncios:.. %d\n"     , dias_de_anuncio   );
-    fprintf(arq, "Orçamento diário:......................... R$ %.2f\n", orcamento_diario  );
-    fprintf(arq, "Orçamento total total:.................... R$ %.2f\n", orcamento_total   );
-    fprintf(arq, "Criativos já foram enviados?:............. %s\n"     , status_do_criativo);
-    fprintf(arq, "---------------------------------------------------------\n"             );
-
 
     // Fecha o arquivo
-    fclose(arq);
-
+    fclose(relatorio);
     return 0;
 }
