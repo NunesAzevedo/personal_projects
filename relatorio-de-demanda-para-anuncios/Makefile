@@ -37,7 +37,7 @@ run: $(TARGET)
 	$(TARGET)
 
 open: $(RELATORIO)
-	kwrite $(RELATORIO) &
+	code $(RELATORIO) &
 
 .PHONY: clean
 
