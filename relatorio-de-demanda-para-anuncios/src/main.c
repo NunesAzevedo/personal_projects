@@ -46,9 +46,9 @@ int main()
     // Leitura dos parâmetros
     printf("\nNome da empresa:\n");
     scanf("%s", nomeDaEmpresa);
-    fprintf(relatorio, "**********************************************************\n");
+    fprintf(relatorio, "==========================================================\n");
     fprintf(relatorio, "Relatório de demanda de anúncios em Meta Ads\n");
-    fprintf(relatorio, "**********************************************************\n");
+    fprintf(relatorio, "==========================================================\n");
     fprintf(relatorio, "Empresa: %s\n", nomeDaEmpresa);
     fprintf(relatorio, "---------------------------------------------------------\n");
     free(nomeDaEmpresa);
