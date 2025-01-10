@@ -15,7 +15,6 @@ void limpaBufferTeclado()
 {
     int c;
     while( (c = getchar()) != '\n' && c != EOF) {}
-
 }
 
 int main()
@@ -25,7 +24,8 @@ int main()
 
     // Abertura do arquivo
     FILE *relatorio = fopen("./relatorio/relatorio.txt", "wt+");
-    if (relatorio == NULL) { // Verifica se o arquivo foi aberto corretamente
+    if (relatorio == NULL) 
+    { // Verifica se o arquivo foi aberto corretamente
         perror("\n*********\nErro ao abrir o arquivo\n*********\n");
         return 1;
     }
@@ -56,10 +56,6 @@ int main()
     printf("\nQuantos projetos?\n");
     scanf("%d", &quantidadeDeProjetos);
 
-
-
-
-
     for (int i = 1; i <= quantidadeDeProjetos; i++)
     {
         char* nomeDoProjeto = (char*) malloc(quantidadeDeProjetos * sizeof(char));
@@ -70,7 +66,7 @@ int main()
         }
 
         printf("\nNome do %dº projeto:\n", i);
-        scanf("%s", nomeDoProjeto);
+        gets(nomeDoProjeto);
         limpaBufferTeclado();
 
         if (DEBUGGING) printf("[DEBUG]: nomeDoProjeto[%d]: %s\n", i, nomeDoProjeto);

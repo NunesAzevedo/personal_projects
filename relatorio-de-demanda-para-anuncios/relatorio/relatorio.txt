@@ -3,13 +3,8 @@ Relatório de demanda de anúncios em Meta Ads
 **********************************************************
 Empresa: Turistamos
 ---------------------------------------------------------
-Projeto: Bolinha
-Quantidade de dias que rodarão anúncios:.. 2
-Orçamento diário:......................... R$ 2,00
-Orçamento total total:.................... R$ 4,00
----------------------------------------------------------
-Projeto: Cenoura
-Quantidade de dias que rodarão anúncios:.. 2
-Orçamento diário:......................... R$ 2,00
-Orçamento total total:.................... R$ 4,00
+Projeto: Carnaval
+Quantidade de dias que rodarão anúncios:.. 55
+Orçamento diário:......................... R$ 4,00
+Orçamento total total:.................... R$ 220,00
 ---------------------------------------------------------
